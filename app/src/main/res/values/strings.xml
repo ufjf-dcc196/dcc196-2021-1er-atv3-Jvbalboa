@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Calculadora</string>
+    <string name="primeiroNumeroLabel">Primeiro número:</string>
+    <string name="segundoNumeroLabel">Segundo número:</string>
+    <string name="calcular">Calcular</string>
+    <string name="resultado">-</string>
+    <string name="dicaNumero">Digite um número</string>
 </resources>
