@@ -5,4 +5,9 @@
     <string name="calcular">Calcular</string>
     <string name="resultado">-</string>
     <string name="dicaNumero">Digite um número</string>
+    <string name="soma">+</string>
+    <string name="subtracao">-</string>
+    <string name="multiplicacao">*</string>
+    <string name="divisao">/</string>
+    <string name="operacaoLabel">Operação</string>
 </resources>
