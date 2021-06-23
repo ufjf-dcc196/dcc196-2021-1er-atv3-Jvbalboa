@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
                     resultado = primeiroNumero * segundoNumero;
                     break;
                 case R.id.radioButtonDivisao:
-                    resultado = primeiroNumero / segundoNumero;
+                    if(segundoNumero > 0.0) {
+                        resultado = primeiroNumero / segundoNumero;
+                    }
                     break;
             }
 
