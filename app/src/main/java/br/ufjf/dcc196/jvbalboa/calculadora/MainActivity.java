@@ -2,7 +2,9 @@ package br.ufjf.dcc196.jvbalboa.calculadora;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -24,6 +26,23 @@ public class MainActivity extends AppCompatActivity {
         editTextSegundoNumero = findViewById(R.id.editTextSegundoNumero);
         textViewResultado = findViewById(R.id.textViewResultado);
         radioGroupOperacao = findViewById(R.id.radioGroupOperacao);
+
+        TextView.OnEditorActionListener ouvinteEditText = new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                calcular(v);
+                return false;
+            }
+        };
+        editTextPrimeiroNumero.setOnEditorActionListener(ouvinteEditText);
+        editTextSegundoNumero.setOnEditorActionListener(ouvinteEditText);
+
+        radioGroupOperacao.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                calcular(group);
+            }
+        });
     }
 
     public void calcular(View view) {
