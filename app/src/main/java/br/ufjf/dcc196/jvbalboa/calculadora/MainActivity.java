@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextPrimeiroNumero;
     private EditText editTextSegundoNumero;
     private TextView textViewResultado;
+    private RadioGroup radioGroupOperacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         editTextPrimeiroNumero = findViewById(R.id.editTextPrimeiroNumero);
         editTextSegundoNumero = findViewById(R.id.editTextSegundoNumero);
         textViewResultado = findViewById(R.id.textViewResultado);
+        radioGroupOperacao = findViewById(R.id.radioGroupOperacao);
     }
 
     public void calcular(View view) {
@@ -30,7 +33,22 @@ public class MainActivity extends AppCompatActivity {
         try {
             primeiroNumero = Double.parseDouble(editTextPrimeiroNumero.getText().toString());
             segundoNumero = Double.parseDouble(editTextSegundoNumero.getText().toString());
-            resultado = primeiroNumero + segundoNumero;
+
+            switch (radioGroupOperacao.getCheckedRadioButtonId()) {
+                case R.id.radioButtonSoma:
+                    resultado = primeiroNumero + segundoNumero;
+                    break;
+                case R.id.radioButtonSubtracao:
+                    resultado = primeiroNumero - segundoNumero;
+                    break;
+                case R.id.radioButtonMultiplicacao:
+                    resultado = primeiroNumero * segundoNumero;
+                    break;
+                case R.id.radioButtonDivisao:
+                    resultado = primeiroNumero / segundoNumero;
+                    break;
+            }
+
         } catch (Exception e){
 
         }
